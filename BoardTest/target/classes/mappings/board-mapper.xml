@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<!-- 게시판 글 insert -->
+	<select id="boardinsert" resultType="board">
+		INSERT INTO BOARD(BOARD_NUM, BOARD_TYPE, BOARD_TITLE, BOARD_COMMENT, CREATOR)
+             VALUES((SELECT NVL(MAX(BOARD_NUM), 0)+1 FROM BOARD), '${board_type}' , '${board_title}', '${board_comment}', '${creator}')
+	</select>
+	
+	<!-- 글 상세보기 -->
+	<select id="boardDetail" resultType="board" parameterType="board">
+		SELECT * FROM BOARD WHERE BOARD_NUM = #{board_num}
+	</select>
+	
+	<!-- 게시 글 수정 -->
+	<select id="boardupdate" parameterType="board">
+		UPDATE BOARD SET BOARD_TITLE = '${board_title}', BOARD_COMMENT = '${board_comment}'
+ 			WHERE BOARD_NUM = '${board_num}'
+	</select>
+
+</mapper>
+
+
+
+
+

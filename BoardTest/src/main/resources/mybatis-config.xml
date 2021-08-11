@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+   	<typeAliases>
+		<typeAlias type="com.spring.biz.member.service.MemberVO" alias="member"/>
+		<typeAlias type="com.spring.biz.board.service.ComCodeVO" alias="comcode"/>
+		<typeAlias type="com.spring.biz.board.service.BoardListVO" alias="boardlist"/>
+		<typeAlias type="com.spring.biz.board.service.BoardVO" alias="board"/>
+	</typeAliases> 
+ 	<mappers>
+  		<mapper resource="mappings/member-mapper.xml"/> 
+  		<mapper resource="mappings/comcode-mapper.xml"/> 
+  		<mapper resource="mappings/board-mapper.xml"/> 
+  		<mapper resource="mappings/boardlist-mapper.xml"/> 
+  	</mappers>
+</configuration>
+
+
